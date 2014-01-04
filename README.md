@@ -11,7 +11,7 @@ Most of it is from https://github.com/hubert3/iSniff-GPS.
 
 # Usage
 
-    python applemac.py python applemac.py 00:1C:10:30:97:00 00:1C:10:30:97:AA [...]  
+    python applemac.py 00:1C:10:30:97:00 00:1C:10:30:97:AA [...]  
     # These won't work, try real mac addresses.
     
 This will give you the location of these access points and of those arround it as a json hash.
