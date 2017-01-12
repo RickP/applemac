@@ -2,8 +2,11 @@
 
 import sys
 import requests
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
 import json
 import BSSIDApple_pb2
+
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 def padBSSID(bssid):
 	result = ''
@@ -21,10 +24,6 @@ def ListWifiApple(wifi_list):
 			lon=wifi.location.longitude*pow(10,-8)
 			mac=padBSSID(wifi.bssid)
 			apdict[mac] = (lat,lon)
-		if wifi_list.HasField('unknown1'):
-			print 'Unknown1 : ', '%X' % wifi_list.unknown1
-		if wifi_list.HasField('unknown2'):
-			print 'Unknown2 : ', '%X' % wifi_list.unknown1
 		if wifi_list.HasField('APIName'):
 			print 'APIName : ', wifi_list.APIName
 	return apdict
@@ -36,8 +35,6 @@ def QueryBSSID(bssids):
 		wifi = liste_wifi.wifi.add()
 		wifi.bssid = bssid
 
-	liste_wifi.unknown1 = 0
-	liste_wifi.unknown2 = 0
 	liste_wifi.APIName= "com.apple.Maps"
 	chaine_liste_wifi = liste_wifi.SerializeToString()
 	longueur_chaine_liste_wifi = len(chaine_liste_wifi)
