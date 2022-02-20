@@ -7,11 +7,11 @@ Most of it is from https://github.com/hubert3/iSniff-GPS.
 
 # Prerequisites
 
-    pip install protobuf requests
+    pip3 install protobuf urllib2
 
 # Usage
 
-    python applemac.py 00:1C:10:30:97:00 00:1C:10:30:97:AA [...]  
-    # These won't work, try real mac addresses.
+    python3 applemac.py 00:1C:10:30:97:00
+    # This won't work, try a real mac address.
 
-This will give you the location of these access points and of those arround it as a json hash.
+This will give you the location of the access point.
