@@ -7,7 +7,7 @@ Most of it is from https://github.com/hubert3/iSniff-GPS.
 
 # Prerequisites
 
-    pip3 install protobuf
+    pip3 install requests protobuf
 
 # Usage
 
