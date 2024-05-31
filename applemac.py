@@ -1,9 +1,11 @@
+#!/usr/bin/env python3
+
 import argparse
 import sys
 import code
 import requests
 import webbrowser
-import BSSIDApple_pb2
+import AppleWLC_pb2
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
@@ -38,7 +40,7 @@ def process_result(apple_wloc):
 	return device_locations
 
 def query_bssid(bssid):
-	apple_wloc = BSSIDApple_pb2.AppleWLoc()
+	apple_wloc = AppleWLC_pb2.AppleWLoc()
 	wifi_device = apple_wloc.wifi_devices.add()
 	wifi_device.bssid = bssid
 	apple_wloc.unknown_value1 = 0
@@ -49,7 +51,7 @@ def query_bssid(bssid):
 			"Accept-Language":"en-us", 'User-Agent':'locationd/1753.17 CFNetwork/711.1.12 Darwin/14.0.0'}
 	data = "\x00\x01\x00\x05"+"en_US"+"\x00\x13"+"com.apple.locationd"+"\x00\x0a"+"8.1.12B411"+"\x00\x00\x00\x01\x00\x00\x00" + chr(length_serialized_apple_wloc) + serialized_apple_wloc.decode();
 	r = requests.post('https://gs-loc.apple.com/clls/wloc', headers=headers, data=data, verify=False) # CN of cert on this hostname is sometimes *.ls.apple.com / ls.apple.com, so have to disable SSL verify
-	apple_wloc = BSSIDApple_pb2.AppleWLoc() 
+	apple_wloc = AppleWLC_pb2.AppleWLoc() 
 	apple_wloc.ParseFromString(r.content[10:])
 	return process_result(apple_wloc)
 

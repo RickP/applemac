@@ -7,11 +7,11 @@ Most of it is from https://github.com/hubert3/iSniff-GPS.
 
 # Prerequisites
 
-    pip3 install requests protobuf
+    pip3 install -r requirements.txt
 
 # Usage
 
-    python3 applemac.py 00:1C:10:30:97:00
+    ./applemac.py 00:1C:10:30:97:00
     # This won't work, try a real mac address.
 
 This will give you the location of the access point.
