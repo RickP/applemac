@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 
 import argparse
-import sys
-import code
 import requests
 import webbrowser
 import AppleWLC_pb2
@@ -57,7 +55,6 @@ def query_bssid(bssid):
 
 def main():
 	args = parse_arguments()
-	#requests.packages.urllib3.disable_warnings()
 	print("Searching for location of bssid: %s" % args.bssid)
 	results = query_bssid(args.bssid)
 	lat = "-180.0"
