@@ -11,7 +11,13 @@ Most of it is from https://github.com/hubert3/iSniff-GPS.
 
 # Usage
 
+To get the location of a wifi access point, run the script with the mac address of the access point.
+
     ./applemac.py 00:1C:10:30:97:00
     # This won't work, try a real mac address.
 
-This will give you the location of the access point.
+To additionally open the location in google maps, run the script with the mac address of the access point and the -m flag.
+
+    ./applemac.py -m 00:1C:10:30:97:00
+
+
