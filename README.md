@@ -16,7 +16,7 @@ To get the location of a wifi access point, run the script with the mac address 
     ./applemac.py 00:1C:10:30:97:00
     # This won't work, try a real mac address.
 
-To additionally open the location in google maps, run the script with the mac address of the access point and the -m flag.
+To additionally open the location in google maps, run the script with the mac address of the access point and the flag "-m".
 
     ./applemac.py -m 00:1C:10:30:97:00
 
